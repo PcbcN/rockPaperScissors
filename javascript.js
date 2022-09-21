@@ -33,30 +33,36 @@ function getPlayerSelection() {
     return playerSelectionInt;
 }
 
-/* Esta función es la de partida individual */
-function rondaJuego(computerSelectionInt, playerSelectionInt) {
-    if (computerSelectionInt === playerSelectionInt) {
-    return "Es un empate!";}
-    
-    else if (computerSelectionInt === 1 && playerSelectionInt === 2){ 
-        return "tú ganas! Papel gana a piedra";}
-
-        else if (computerSelectionInt === 2 && playerSelectionInt === 1){ 
-            return "tú pierdes! Piedra gana a papel";}
-
-            else if (computerSelectionInt === 3 && playerSelectionInt === 1){ 
-                return "tú ganas! Piedra gana a tijeras";}
-
-                else if (computerSelectionInt === 1 && playerSelectionInt === 3){ 
-                    return "tú pierdes! Tijeras gana a piedra";}
-
-                else if (computerSelectionInt === 3 && playerSelectionInt === 2){ 
-                    return "tú pierdes! Tijeras gana a papel";}
-
-                    else if (computerSelectionInt === 2 && playerSelectionInt === 3){ 
-                        return "tú Ganas! Tijeras gana a papel";}
-
-                        else {
-                            return "Algo no ha funcionado!"}
+function game(playerSelectionInt, computerSelectionInt) {
+    let arr = [playerSelectionInt, computerSelectionInt];
+    let resultado = "";
+    console.log(arr);
+    console.log(resultado);
+    if (playerSelectionInt === computerSelectionInt) {resultado = "Empate!";
+    } else if (arr = [1,3]) {resultado =  "Has ganado!";
+    } else if (arr = [2,1]) {resultado =  "Has ganado!";
+    } else if (arr = [3,2]) {resultado =  "Has ganado!";
+    } else if (arr = [1,2]) {resultado =  "Has perdido!";
+    } else if (arr = [2,3]) {resultado =  "Has perdido!";
+    } else if (arr = [3,1]) {resultado =  "Has perdido!";
+    } else {resultado = "ups! algo ha ido mal"}
+    console.log(resultado);
 }
 
+
+/*
+HAS GANADO!
+[1,3] piedra gana tijeras
+[2,1] papel gana piedra
+[3,2] tijeras gana papel
+
+HAS PERDIDO!
+[1,2] piedra pierde con papel
+[2,3] papel pierde con tijeras
+[3,1] tijeras pierden con piedra
+
+EMPATE!
+[1,1] ambos habéis escogido piedra!
+[2,2] ambos habéis escogido papel!
+[3,3] ambos habéis escogido tijeras!
+*/
