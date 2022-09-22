@@ -7,11 +7,25 @@
     <title>Rock, paper, scissors</title>
     <script src="javascript.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rek5cvc.css">
 </head>
 <body>
+    <div class="header"></div>
     <div class="boton-contenedor">
-        <div class="boton">
-            <button onclick="rock()">Haz click aquí</button>
+        <div class="titulo"><h1>PIEDRA &#160;&#160; PAPEL &#160;&#160; TIJERA</h1></div>
+            <div class="contenedor2">
+                <div class="boton" > 
+                    <input type="image" src="./img/rock.svg" class="img" id="roca" onclick="piedra()">
+                </div>
+
+                <div class="boton"> 
+                    <input type="image" src="./img/paper.svg" class="img" id="papel" onclick="papel()">         
+                </div>
+            
+                <div class="boton"> 
+                    <input type="image" src="./img/scissors.svg" class="img" id="tijeras" onclick="tijeras()">
+                </div>
+            </div>
         </div>
     </div>
 </body>

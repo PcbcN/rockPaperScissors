@@ -20,9 +20,20 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-/* Esta función nos da la playerSelection sacado del input */
-function getPlayerSelection() {
-    playerSelection = prompt ("Por favor, escribe 'piedra', 'papel' o 'tijeras'")
+/* Estas funciones nos dan las playerSelection sacados del user input */
+function piedra() {
+    playerSelection = "piedra";
+    console.log(playerSelection);
+}
+
+function papel() {
+    playerSelection = "papel";
+    console.log(playerSelection);
+}
+
+function tijeras() {
+    playerSelection = "tijeras";
+    console.log(playerSelection);
 }
 
 /* Esta función represta una ronda de juego */
