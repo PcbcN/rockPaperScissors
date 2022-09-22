@@ -1,12 +1,15 @@
-/* Creamos las dos variables globales con la selección del ordenador y la del jugador */
+/* Creamos las variables globales con la selección del ordenador, la del jugador y el resultado */
 let playerSelection = "";
 let playerSelectionInt = 0;
 let computerSelection = "";
 let computerSelectionInt = 0;
+let playerPuntos = 0;
+let computerPuntos = 0;
+
 
 /* Esta función nos da la computerSelection, un número entero del 1 al 3 siempre random */
 function getComputerChoice() {
-    let computerSelectionInt = Math.floor(Math.random() * 3) + 1;
+    computerSelectionInt = Math.floor(Math.random() * 3 + 1);
     if (computerSelectionInt === 1) {
         computerSelection = "piedra";
     } else if (computerSelectionInt === 2) {
@@ -14,40 +17,26 @@ function getComputerChoice() {
     } else if (computerSelectionInt === 3) {
         computerSelection = "tijeras";
     }
-    return computerSelectionInt;
+    return computerSelection;
 }
 
-/* Esta función nos da la playerSelection sacado del prompt */
+/* Esta función nos da la playerSelection sacado del input */
 function getPlayerSelection() {
-    playerSelection = prompt ("Por favor, escribe 'piedra', 'papel' o 'tijeras'");
-    if (playerSelection == "piedra"){
-        playerSelectionInt = 1;
-    }
-    else if (playerSelection == "papel"){
-        playerSelectionInt = 2;
-    }
-    else if (playerSelection == "tijeras")
-    {
-        playerSelectionInt = 3;
-    }
-    return playerSelectionInt;
+    playerSelection = prompt ("Por favor, escribe 'piedra', 'papel' o 'tijeras'")
 }
 
-function game(playerSelectionInt, computerSelectionInt) {
-    let arr = [playerSelectionInt, computerSelectionInt];
+/* Esta función represta una ronda de juego */
+function gameRound() {
     let resultado = "";
-    console.log(arr);
-    console.log(resultado);
-    if (playerSelectionInt === computerSelectionInt) {resultado = "Empate!";
-    } else if (arr = [1,3]) {resultado =  "Has ganado!";
-    } else if (arr = [2,1]) {resultado =  "Has ganado!";
-    } else if (arr = [3,2]) {resultado =  "Has ganado!";
-    } else if (arr = [1,2]) {resultado =  "Has perdido!";
-    } else if (arr = [2,3]) {resultado =  "Has perdido!";
-    } else if (arr = [3,1]) {resultado =  "Has perdido!";
-    } else {resultado = "ups! algo ha ido mal"}
-    console.log(resultado);
+    if ((playerSelection == 'piedra' && computerSelection == 'tijeras') || (playerSelection == 'papel' && computerSelection == 'piedra') || (playerSelection == 'tijeras' && computerSelection == 'papel')) {
+        resultado = "Ganas";
+    } else if ((playerSelection == 'piedra' && computerSelection == 'papel') || (playerSelection == 'papel' && computerSelection == 'tijeras') || (playerSelection == 'tijeras' && computerSelection == 'piedra')) {
+        resultado = "pierdes";
+    } else {resultado = "Empate";}
+    return resultado;
 }
+
+
 
 
 /*
