@@ -1,11 +1,20 @@
 /* Creamos las variables globales con la selección del ordenador, la del jugador y el resultado */
 let playerSelection = "";
-let playerSelectionInt = 0;
 let computerSelection = "";
 let computerSelectionInt = 0;
 let playerPuntos = 0;
 let computerPuntos = 0;
-const botones = document.querySelectorAll("input.img").values;
+
+/* Variables fijas con elementos del DOM que vamos a utilizar*/
+const boton1 = document.querySelector('div[value="piedra"]');
+const boton2 = document.querySelector('div[value="papel"]');
+const boton3 = document.querySelector('div[value="tijeras"]');
+const juego = document.querySelectorAll(".boton");
+
+/* Estas funciones nos dan las playerSelection sacados del user input */
+boton1.addEventListener("click", () => playerSelection = "piedra");
+boton2.addEventListener("click", () => playerSelection = "papel");
+boton3.addEventListener("click", () => playerSelection = "tijeras");
 
 
 /* Esta función nos da la computerSelection, un número entero del 1 al 3 siempre random */
@@ -21,36 +30,37 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-/* Estas funciones nos dan las playerSelection sacados del user input y disparan getComputerChoice, preparando la ronda*/
-
-
-
 /* Esta función represta una ronda de juego */
-function gameRound() {
+function gameRound(a, b) {
+    a = playerSelection;
+    b = computerSelection;
     let resultado = "";
-    if ((playerSelection == 'piedra' && computerSelection == 'tijeras') || (playerSelection == 'papel' && computerSelection == 'piedra') || (playerSelection == 'tijeras' && computerSelection == 'papel')) {
-        resultado = "Ganas";
-    } else if ((playerSelection == 'piedra' && computerSelection == 'papel') || (playerSelection == 'papel' && computerSelection == 'tijeras') || (playerSelection == 'tijeras' && computerSelection == 'piedra')) {
-        resultado = "pierdes";
-    } else {resultado = "Empate";}
+    if ((playerSelection == 'piedra' && computerSelection == 'tijeras') || 
+        (playerSelection == 'papel' && computerSelection == 'piedra') || 
+        (playerSelection == 'tijeras' && computerSelection == 'papel')) {
+            playerPuntos += 1;
+            resultado = "Ganas";} 
+    else if (playerSelection === computerSelection) { 
+            resultado = "Empate!";} 
+    else {
+        computerPuntos += 1;
+        resultado = "Pierdes";}
     return resultado;
 }
 
-/* Este es el juego a 5 rondas */
-function fullGame() {
-    let resultado = "";
-    for (let i = 0; i < 6; i++) {
-        if ((playerSelection == 'piedra' && computerSelection == 'tijeras') || (playerSelection == 'papel' && computerSelection == 'piedra') || (playerSelection == 'tijeras' && computerSelection == 'papel')) {
-            resultado = "Ganas"; playerPuntos++; console.log(playerPuntos)
-        } else if ((playerSelection == 'piedra' && computerSelection == 'papel') || (playerSelection == 'papel' && computerSelection == 'tijeras') || (playerSelection == 'tijeras' && computerSelection == 'piedra')) {
-            resultado = "pierdes"; computerPuntos++; console.log(computerPuntos);
-        } else {resultado = "Empate";}
-        return resultado;
-        }
-}
+/* Este es el juego*/
+    juego.forEach(juego =>{juego.addEventListener("click", function () {
 
-
-
+        if(playerPuntos == 5 || computerPuntos == 5) {
+            alert ("Juego terminado!")
+        } else {
+        getComputerChoice();
+        gameRound();
+        console.log(playerPuntos);
+        console.log(computerPuntos);
+        }})
+        
+        ;})
 
 
 

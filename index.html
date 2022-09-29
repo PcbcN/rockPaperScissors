@@ -5,27 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, paper, scissors</title>
-    <script src="javascript.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.typekit.net/rek5cvc.css">
 </head>
 <body>
-    <div class="header"><h3>Un juego escrito y diseñado como ejercicio en The Odin Project</h3>
-    </div>
+    <div class="header"><h3>Un juego escrito y diseñado como ejercicio en The Odin Project</h3></div>
     <div class="boton-contenedor">
-        <div class="titulo"><h1>PIEDRA &#160;&#160; PAPEL &#160;&#160; TIJERA</h1></div>
+            <div class="titulo"><h1>PIEDRA &#160;&#160; PAPEL &#160;&#160; TIJERA</h1></div>
             <div class="contenedor2">
-                <div class="boton" > 
-                    <input type="image" src="./img/rock.svg" class="img" value="piedra"></input>
+                <div class="boton" value="piedra">
+                    <img src="./img/rock.svg"></img>
+                </div> 
+                <div class="boton" value="papel">
+                    <img src="./img/paper.svg"></img>
+                </div>
+                <div class="boton" value="tijeras">
+                    <img src="./img/scissors.svg"></img>
                 </div>
 
-                <div class="boton"> 
-                    <input type="image" src="./img/paper.svg" class="img" value="papel"></input>         
-                </div>
-            
-                <div class="boton"> 
-                    <input type="image" src="./img/scissors.svg" class="img" value="tijeras"></input>
-                </div>
             </div>
          <div class="subtitulo"><h2>Pulsa en el símbolo que quieras jugar</h2></div>
          <div class="resultados">
@@ -34,4 +31,5 @@
     </div>
 
 </body>
+<script src="javascript.js"></script>
 </html>
