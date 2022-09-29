@@ -5,6 +5,7 @@ let computerSelection = "";
 let computerSelectionInt = 0;
 let playerPuntos = 0;
 let computerPuntos = 0;
+const botones = document.querySelectorAll("input.img").values;
 
 
 /* Esta función nos da la computerSelection, un número entero del 1 al 3 siempre random */
@@ -20,21 +21,9 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-/* Estas funciones nos dan las playerSelection sacados del user input */
-function piedra() {
-    playerSelection = "piedra";
-    console.log(playerSelection);
-}
+/* Estas funciones nos dan las playerSelection sacados del user input y disparan getComputerChoice, preparando la ronda*/
 
-function papel() {
-    playerSelection = "papel";
-    console.log(playerSelection);
-}
 
-function tijeras() {
-    playerSelection = "tijeras";
-    console.log(playerSelection);
-}
 
 /* Esta función represta una ronda de juego */
 function gameRound() {
@@ -46,6 +35,22 @@ function gameRound() {
     } else {resultado = "Empate";}
     return resultado;
 }
+
+/* Este es el juego a 5 rondas */
+function fullGame() {
+    let resultado = "";
+    for (let i = 0; i < 6; i++) {
+        if ((playerSelection == 'piedra' && computerSelection == 'tijeras') || (playerSelection == 'papel' && computerSelection == 'piedra') || (playerSelection == 'tijeras' && computerSelection == 'papel')) {
+            resultado = "Ganas"; playerPuntos++; console.log(playerPuntos)
+        } else if ((playerSelection == 'piedra' && computerSelection == 'papel') || (playerSelection == 'papel' && computerSelection == 'tijeras') || (playerSelection == 'tijeras' && computerSelection == 'piedra')) {
+            resultado = "pierdes"; computerPuntos++; console.log(computerPuntos);
+        } else {resultado = "Empate";}
+        return resultado;
+        }
+}
+
+
+
 
 
 
