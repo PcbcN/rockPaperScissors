@@ -49,10 +49,6 @@ function gameRound(a, b) {
     return resultado;
 }
 
-/* Funcion para animar la presentacion de resultado */
-
-
-
 /* Este es el juego*/
     juego.forEach(juego =>{juego.addEventListener("click", function () {
         let textoUsuario = "";
