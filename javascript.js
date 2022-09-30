@@ -4,6 +4,7 @@ let computerSelection = "";
 let computerSelectionInt = 0;
 let playerPuntos = 0;
 let computerPuntos = 0;
+let resultado = "";
 
 /* Variables fijas con elementos del DOM que vamos a utilizar*/
 const boton1 = document.querySelector('div[value="piedra"]');
@@ -34,7 +35,7 @@ function getComputerChoice() {
 function gameRound(a, b) {
     a = playerSelection;
     b = computerSelection;
-    let resultado = "";
+   
     if ((playerSelection == 'piedra' && computerSelection == 'tijeras') || 
         (playerSelection == 'papel' && computerSelection == 'piedra') || 
         (playerSelection == 'tijeras' && computerSelection == 'papel')) {
@@ -48,16 +49,25 @@ function gameRound(a, b) {
     return resultado;
 }
 
+/* Funcion para animar la presentacion de resultado */
+
+
+
 /* Este es el juego*/
     juego.forEach(juego =>{juego.addEventListener("click", function () {
-
-        if(playerPuntos == 5 || computerPuntos == 5) {
-            alert ("Juego terminado!")
+        let textoUsuario = "";
+        if(playerPuntos == 5) {
+            document.getElementById("outputJuego").innerHTML = "HAS GANADO! <br> Has llegado primero a " + playerPuntos;}
+            else if (computerPuntos == 5) {
+                document.getElementById("outputJuego").innerHTML = "JA JA JA! He ganado! <br> He llegado primero a " + computerPuntos;
         } else {
         getComputerChoice();
         gameRound();
-        console.log(playerPuntos);
-        console.log(computerPuntos);
+
+        if(resultado == "Ganas") {
+            document.getElementById("outputJuego").innerHTML = "Felicidades! Tú " + resultado + "<br> tú llevas " + playerPuntos + " y yo " + computerPuntos;}
+            else if (resultado == "Empate!"){document.getElementById("outputJuego").innerHTML = "Es un empate! Qué emoción";}
+                else {document.getElementById("outputJuego").innerHTML = "Lástima! Tú " + resultado + "<br> tú llevas " + playerPuntos + " y yo " + computerPuntos;}
         }})
         
         ;})
